@@ -69,7 +69,7 @@ async def main_loop(file):
 
     name_sound_file = os.path.basename(file)
     name_text_file = rename_sound_to_text_file(name_sound_file)
-    name_file = os.path.abspath('./transcribe/') + name_text_file
+    name_file = os.path.join(os.path.abspath('./transcribe/'), name_text_file)
 
     print('Начал выполнение для файла ' + name_sound_file)
 
@@ -109,7 +109,7 @@ def rename_sound_to_text_file(sound_file):
 
     if re.search(type_files_compile, sound_file) is not None:
         name_text_file = re.sub(type_files_compile, '.txt', sound_file)
-
+        
     return name_text_file
 
 

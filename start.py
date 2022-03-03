@@ -148,10 +148,9 @@ async def main():
 
         # Сбор всех звуковых файлов и создание задач
         for file in fullpaths:
-            if '.DS_Store' not in file:
-                if os.path.isfile(file): 
-                    task = asyncio.create_task(main_loop(file))
-                    tasks.append(task)
+            if os.path.isfile(file): 
+                task = asyncio.create_task(main_loop(file))
+                tasks.append(task)
 
         await asyncio.gather(*tasks)
 
